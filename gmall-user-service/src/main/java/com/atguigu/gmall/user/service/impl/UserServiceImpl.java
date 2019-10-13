@@ -1,5 +1,6 @@
 package com.atguigu.gmall.user.service.impl;
 
+
 import com.alibaba.dubbo.config.annotation.Service;
 import com.atguigu.gmall.bean.UmsMember;
 import com.atguigu.gmall.bean.UmsMemberReceiveAddress;
@@ -15,23 +16,31 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     UserMapper userMapper;
+
     @Autowired
     UmsMemberReceiveAddressMapper umsMemberReceiveAddressMapper;
+
     @Override
     public List<UmsMember> getAllUser() {
-        List<UmsMember> umsMemberList=userMapper.selectAll();//userMapper.selectAllUser();
-        return umsMemberList;
+
+        List<UmsMember> umsMembers = userMapper.selectAll();//userMapper.selectAllUser();
+
+        return umsMembers;
     }
 
     @Override
     public List<UmsMemberReceiveAddress> getReceiveAddressByMemberId(String memberId) {
-        UmsMemberReceiveAddress umsMemberReceiveAddress=new UmsMemberReceiveAddress();
-        umsMemberReceiveAddress.setMemberId(memberId);
 
-       // List<UmsMemberReceiveAddress> umsMemberReceiveAddresses=umsMemberReceiveAddressMapper.selectByExample(umsMemberReceiveAddress);
-        List<UmsMemberReceiveAddress> umsMemberReceiveAddresses=umsMemberReceiveAddressMapper.select(umsMemberReceiveAddress);
+        // 封装的参数对象
+        UmsMemberReceiveAddress umsMemberReceiveAddress = new UmsMemberReceiveAddress();
+        umsMemberReceiveAddress.setMemberId(memberId);
+        List<UmsMemberReceiveAddress> umsMemberReceiveAddresses = umsMemberReceiveAddressMapper.select(umsMemberReceiveAddress);
+
+
+//       Example example = new Example(UmsMemberReceiveAddress.class);
+//       example.createCriteria().andEqualTo("memberId",memberId);
+//       List<UmsMemberReceiveAddress> umsMemberReceiveAddresses = umsMemberReceiveAddressMapper.selectByExample(example);
+
         return umsMemberReceiveAddresses;
     }
-
-
 }
