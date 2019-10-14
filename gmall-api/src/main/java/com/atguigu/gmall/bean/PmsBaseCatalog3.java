@@ -12,7 +12,16 @@ public class PmsBaseCatalog3 implements Serializable {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
        private String  id;
        private String   name;
-       private String   catalogId;
+
+    public String getCatalog2Id() {
+        return catalog2Id;
+    }
+
+    public void setCatalog2Id(String catalog2Id) {
+        this.catalog2Id = catalog2Id;
+    }
+
+    public String   catalog2Id;
 
     public String getId() {
         return id;
@@ -30,11 +39,5 @@ public class PmsBaseCatalog3 implements Serializable {
         this.name = name;
     }
 
-    public String getCatalogId() {
-        return catalogId;
-    }
 
-    public void setCatalogId(String catalogId) {
-        this.catalogId = catalogId;
-    }
 }
