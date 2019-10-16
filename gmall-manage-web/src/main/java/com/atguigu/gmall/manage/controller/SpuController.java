@@ -19,7 +19,8 @@ public class SpuController {
     @RequestMapping("foleUpload")
     @ResponseBody
     public String foleUpload(@RequestParam("file")MultipartFile multipartFile){
-    return "success";
+    String imgUrl="";
+    return imgUrl;
     }
     @RequestMapping("saveSpuInfo")
     @ResponseBody
