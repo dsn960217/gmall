@@ -5,15 +5,22 @@ import org.csource.fastdfs.ClientGlobal;
 import org.csource.fastdfs.StorageClient;
 import org.csource.fastdfs.TrackerClient;
 import org.csource.fastdfs.TrackerServer;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class PmsUploadUtil {
     public static String uploadImage(MultipartFile multipartFile){
         String imgUrl="http://192.168.147.128";
         // 配置fdfs的全局链接地址
-        String tracker = PmsUploadUtil.class.getResource("/tracker.conf").getPath();// 获得配置文件的路径
+        String tracker = null;
+        try {
+            tracker = ResourceUtils.getFile("classpath:tracker.conf").getPath();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
         try {
             ClientGlobal.init(tracker);

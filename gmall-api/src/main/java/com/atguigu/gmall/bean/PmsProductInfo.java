@@ -17,13 +17,6 @@ public class PmsProductInfo implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
-    public List<PmsProductImage> getSupImageList() {
-        return supImageList;
-    }
-
-    public void setSupImageList(List<PmsProductImage> supImageList) {
-        this.supImageList = supImageList;
-    }
 
     @Column
     private String productName;
@@ -37,7 +30,7 @@ public class PmsProductInfo implements Serializable {
     @Transient
     private List<PmsProductSaleAttr> spuSaleAttrList;
     @Transient
-    private List<PmsProductImage> supImageList;
+    private List<PmsProductImage> spuImageList;
 
 
     public String getProductName() {
@@ -83,6 +76,13 @@ public class PmsProductInfo implements Serializable {
         this.catalog3Id = catalog3Id;
     }
 
+    public List<PmsProductImage> getSpuImageList() {
+        return spuImageList;
+    }
+
+    public void setSpuImageList(List<PmsProductImage> spuImageList) {
+        this.spuImageList = spuImageList;
+    }
 }
 
 
