@@ -1,5 +1,6 @@
 package com.atguigu.gmall.manage.service.impl;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.atguigu.gmall.bean.PmsSkuAttrValue;
 import com.atguigu.gmall.bean.PmsSkuImage;
 import com.atguigu.gmall.bean.PmsSkuInfo;
@@ -12,7 +13,7 @@ import com.atguigu.gmall.service.SkuService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-
+@Service
 public class SkuServiceImpl implements SkuService {
    @Autowired
    PmsSkuInfoMapper pmsSkuInfoMapper;
@@ -48,5 +49,25 @@ public class SkuServiceImpl implements SkuService {
             pmsSkuImage.setSkuId(skuId);
             pmsSkuImageMapper.insertSelective(pmsSkuImage);
         }
+    }
+
+    @Override
+    public PmsSkuInfo getSkuById(String skuId) {
+        //sku商品对象
+       PmsSkuInfo pmsSkuInfo=new PmsSkuInfo();
+        pmsSkuInfo.setId(skuId);
+        PmsSkuInfo skuInfo=pmsSkuInfoMapper.selectOne(pmsSkuInfo);
+        //sku的图片集合
+        PmsSkuImage pmsSkuImage=new PmsSkuImage();
+        pmsSkuImage.setSkuId(skuId);
+        List<PmsSkuImage> pmsSkuImages=pmsSkuImageMapper.select(pmsSkuImage);
+        skuInfo.setSkuImageList(pmsSkuImages);
+        return skuInfo;
+    }
+
+    @Override
+    public List<PmsSkuInfo> getSkuSaleAttrValueListBySpu(String productId) {
+        List<PmsSkuInfo> pmsSkuInfos = pmsSkuInfoMapper.selectSkuSaleAttrValueListBySpu(productId);
+        return pmsSkuInfos;
     }
 }
