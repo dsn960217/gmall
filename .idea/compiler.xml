@@ -29,6 +29,7 @@
       <module name="gmall-manage-service" target="1.8" />
       <module name="gmall-manage-web" target="1.8" />
       <module name="gmall-parent" target="1.8" />
+      <module name="gmall-redisson-test" target="1.8" />
       <module name="gmall-service-util" target="1.8" />
       <module name="gmall-user" target="1.8" />
       <module name="gmall-user-service" target="1.8" />
@@ -41,6 +42,7 @@
       <module name="gmall-item-web" options="" />
       <module name="gmall-manage-service" options="" />
       <module name="gmall-manage-web" options="" />
+      <module name="gmall-redisson-test" options="" />
     </option>
   </component>
 </project>
