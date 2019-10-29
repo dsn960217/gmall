@@ -22,16 +22,15 @@
         <module name="gmall-web-util" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="demo" target="1.8" />
-      <module name="fastdfs-client-java" target="1.6" />
-      <module name="gmall-api" target="1.5" />
+      <module name="fastdfs-client-java" target="1.8" />
+      <module name="gmall-api" target="1.8" />
       <module name="gmall-common-util" target="1.8" />
       <module name="gmall-item-web" target="1.8" />
       <module name="gmall-manage-service" target="1.8" />
       <module name="gmall-manage-web" target="1.8" />
       <module name="gmall-parent" target="1.8" />
-      <module name="gmall-redisson-test" target="1.8" />
       <module name="gmall-search-service" target="1.8" />
       <module name="gmall-search-web" target="1.8" />
       <module name="gmall-service-util" target="1.8" />
@@ -46,9 +45,8 @@
       <module name="gmall-item-web" options="" />
       <module name="gmall-manage-service" options="" />
       <module name="gmall-manage-web" options="" />
-      <module name="gmall-redisson-test" options="" />
       <module name="gmall-search-service" options="" />
-      <module name="gmall-search-web" options="-parameters" />
+      <module name="gmall-search-web" options="" />
     </option>
   </component>
 </project>
